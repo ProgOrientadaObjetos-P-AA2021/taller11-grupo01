@@ -9,11 +9,11 @@ package restaurante;
  *
  * @author DELL
  */
-public class menuNiños  extends menu{
+public class MenuNiños  extends Menu{
     private double porHelado;
     private double pastel;
     
-    public menuNiños(double he,double pa){
+    public MenuNiños(double he,double pa){
         porHelado = he;
         pastel = pa;
         

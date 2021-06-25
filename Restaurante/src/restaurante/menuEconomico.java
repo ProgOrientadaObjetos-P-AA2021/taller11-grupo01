@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author DELL
  */
-public class menuEconomico extends menu{
+public class menuEconomico extends Menu{
     private double porcentaje;
     
     public  menuEconomico(double p){
@@ -22,5 +22,8 @@ public class menuEconomico extends menu{
     public double getPorcentajeDescuento(){
         return porcentaje;
     }
-    
+        @Override
+    public void setValorMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
