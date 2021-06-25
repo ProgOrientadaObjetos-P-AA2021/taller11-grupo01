@@ -9,11 +9,12 @@ package restaurante;
  *
  * @author DELL
  */
-public class MenuNiños  extends Menu{
+public class menuNiños  extends Menu{
     private double porHelado;
     private double pastel;
     
-    public MenuNiños(double he,double pa){
+    public menuNiños( String nombrePlato, double valorInicialMenu ,double he,double pa){
+        super(nombrePlato,valorInicialMenu);
         porHelado = he;
         pastel = pa;
         
@@ -29,8 +30,22 @@ public class MenuNiños  extends Menu{
     public double getValorPorcionHelado(){
         return porHelado;
     }
-    public double getValorPorcionPatel(){
+    public double getValorPorcionPastel(){
         return pastel ;
     }
-    
+    @Override
+     public String toString() {
+        String cadena = String.format(">>>>>>>> Menu para niños <<<<<<<<\n"
+                + "%s>\tValor Helado %.2f\n"
+                + ">\tValor  de Pastel: %.2f\n",
+                super.toString(),
+                getValorPorcionHelado(),
+                getValorPorcionPastel());
+
+        return cadena;
+    }
+     @Override
+    public void setValorMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

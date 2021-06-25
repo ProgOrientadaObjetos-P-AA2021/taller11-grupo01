@@ -11,67 +11,69 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
-public class Cuenta {
-
+public class Cuenta  {
     private String nombreCl;
     private ArrayList<Menu> listadoMenu;
     private double valTotal;
     private double subt;
     private int iva;
-
-    public Cuenta(String no, double val, double s, int i,ArrayList<Menu> listadoMenus) {
+    
+    public Cuenta(String no,double val,double s, int i){
         nombreCl = no;
         valTotal = val;
         subt = s;
         iva = i;
-
+        
     }
-
-    public void setNombreCliente(String n) {
+    public void setNombreCliente(String n){
         nombreCl = n;
-
+        
     }
-
-    public void setListadoCartas(ArrayList<Menu> l) {
+    public void setListadoCartas(ArrayList<Menu> l){
         listadoMenu = l;
     }
-
-    public void setValorTotal(double t) {
-        valTotal = t;
+    public void setValorTotal(){
+        valTotal = ((subt * iva)/100)+ subt ;
     }
-
-    public void setSubtotal(double s) {
+    public void setSubtotal(double s){
         subt = s;
     }
-
-    public void setIva(int iv) {
+    public void setIva(int iv){
         iva = iv;
     }
-
-    public String getNombreCliente() {
+    
+    public String getNombreCliente(){
         return nombreCl;
     }
-
-    public ArrayList<Menu> getListadoCartas() {
+    public ArrayList<Menu> getListadoCartas(){
         return listadoMenu;
     }
-
-    public double getValorTotal() {
+    public double getValorTotal(){
         return valTotal;
     }
-
-    public double getSubtotal() {
+    public double getSubtotal(){
         return subt;
     }
-
-    public int getIva() {
+    public int getIva(){
         return iva;
     }
-
+    
     @Override
     public String toString() {
-        String cadena = String.format("Su cuenta es:");
-        return cadena
+        String cadena = String.format(">>>>>>>> Cuenta <<<<<<<<\n"
+                + "%s>\tNombre Cliente: %s\n"
+                + ">\tlista del menu: %s\n"
+                + ">\tValor Total:%.2f\n"
+                + ">\tSubtotal:\n"
+                + ">\tIva: \n",
+                super.toString(),
+                getNombreCliente(),
+                getListadoCartas(),
+                getValorTotal(),
+                getSubtotal(),
+                getIva());
 
+        return cadena;
     }
 }
+

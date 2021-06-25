@@ -12,7 +12,8 @@ package restaurante;
 public class menuEconomico extends Menu{
     private double porcentaje;
     
-    public  menuEconomico(double p){
+    public menuEconomico( String nombrePlato, double valorInicialMenu ,double p){
+        super(nombrePlato,valorInicialMenu);
         porcentaje = p;
     }
     public void setPorcentajeDescuento(double pro){
@@ -22,8 +23,21 @@ public class menuEconomico extends Menu{
     public double getPorcentajeDescuento(){
         return porcentaje;
     }
-        @Override
+    
+    @Override
+    public String toString() {
+        String cadena = String.format(">>>>>>>> Menu Economico <<<<<<<<\n"
+                + "%s>\tPorcentaje descuento:  %.2f\n",
+                super.toString(),
+                getPorcentajeDescuento());
+               
+
+        return cadena;
+    }
+
+    @Override
     public void setValorMenu() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }
