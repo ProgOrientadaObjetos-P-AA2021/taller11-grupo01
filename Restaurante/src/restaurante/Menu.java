@@ -46,10 +46,8 @@ public abstract class Menu {
     @Override
     public String toString() {
         String cadena = String.format(">\tNombre del Plato: %s\n"
-                + ">\tValor Menu: %.2f\n"
                 + ">\tValor Inicial del Menu: %.2f\n",
-                getNombrePlato(),
-                getValorMenu(), getValorInicialMenu());
+                getNombrePlato(), getValorInicialMenu());
 
         return cadena;
     }

@@ -15,9 +15,12 @@ public class menuCarta extends Menu {
     private double valorBebida;
     private double porcenForService;
 
-    public menuCarta(String nombrePlato, double valorInicialMenu) {
+    public menuCarta(String nombrePlato, double valorInicialMenu,
+            double valorGuarnicion, double valorBebida) {
         super(nombrePlato, valorInicialMenu);
-
+        this.valorGuarnicion = valorGuarnicion;
+        this.valorBebida = valorBebida;
+        setPorcenForService(10);
     }
 
     public void setValorGuarnicion(double valorGuarnicion) {
@@ -28,8 +31,8 @@ public class menuCarta extends Menu {
         this.valorBebida = valorBebida;
     }
 
-    public void setPorcenForService(double porcenForService) {
-        this.porcenForService = porcenForService;
+    public void setPorcenForService(int x) {
+        this.porcenForService = (valorInicialMenu * x) / 100;
     }
 
     public double getValorGuarnicion() {
@@ -49,16 +52,17 @@ public class menuCarta extends Menu {
         String cadena = String.format(">>>>>>>> Menu de la Carta <<<<<<<<\n"
                 + "%s>\tValor de Guarnición %.2f\n"
                 + ">\tValor  de Bebida: %.2f\n"
-                + ">\tPorcentaje Adicional por Servicio: %.2f\n",
+                + ">\tValor Adicional por Servicio: %.2f\n"
+                + ">\tValor total del menu: %.2f\n",
                 super.toString(),
                 getValorGuarnicion(),
-                getValorBebida(), getPorcenForService());
+                getValorBebida(), getPorcenForService(), getValorMenu());
 
         return cadena;
     }
 
     @Override
     public void setValorMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.valorMenu = valorGuarnicion + valorBebida + porcenForService;
     }
 }

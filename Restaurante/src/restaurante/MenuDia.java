@@ -5,7 +5,6 @@ package restaurante;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author nixon
@@ -15,8 +14,10 @@ public class MenuDia extends Menu {
     private double valorPostre;
     private double valorBebida;
 
-    public MenuDia(String nombrePlato, double valorInicialMenu) {
+    public MenuDia(String nombrePlato, double valorInicialMenu, double ValorPostre, double valorBebida) {
         super(nombrePlato, valorInicialMenu);
+        this.valorBebida = valorBebida;
+        this.valorPostre = valorPostre;
     }
 
     public void setValorPostre(double valorPostre) {
@@ -36,6 +37,11 @@ public class MenuDia extends Menu {
     }
 
     @Override
+    public void setValorMenu() {
+        this.valorMenu = valorPostre + valorBebida;
+    }
+
+    @Override
     public String toString() {
         String cadena = String.format(">>>>>>>> Menu del Dia <<<<<<<<\n"
                 + "%s>\tValor del Postre: %.2f\n"
@@ -45,10 +51,5 @@ public class MenuDia extends Menu {
                 getValorBebida());
 
         return cadena;
-    }
-
-    @Override
-    public void setValorMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

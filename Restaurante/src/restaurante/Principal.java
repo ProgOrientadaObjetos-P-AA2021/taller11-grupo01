@@ -25,7 +25,7 @@ Un objeto de tipo Cuenta (con datos iniciales como: nombre del cliente, IVA, lis
         MenuNiños muniNiño1 = new MenuNiños(0.50, 1);
         MenuNiños muniNiño2 = new MenuNiños(2.30, 3);
         menuEconomico menuEconomic = new menuEconomico(22.1);
-        MenuDia menuDay = new MenuDia("Caldito de Pollo", 31.1);
+        MenuDia menuDay = new MenuDia("Caldito de Pollo", 31.1,12.1,12.4);
         menuCarta munuCart = new menuCarta("Caldito de Pollo", 31.1);
 
         listaMenus.add(muniNiño1);
