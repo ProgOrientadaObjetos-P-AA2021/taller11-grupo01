@@ -22,11 +22,11 @@ Un objeto de tipo menú de económico
  Un objeto de tipo menú del día
 Un objeto de tipo menú a la carta.
 Un objeto de tipo Cuenta (con datos iniciales como: nombre del cliente, IVA, listado de cartas -menú-.*/
-        MenuNiños muniNiño1 = new MenuNiños(0.50, 1);
-        MenuNiños muniNiño2 = new MenuNiños(2.30, 3);
-        menuEconomico menuEconomic = new menuEconomico(22.1);
+        menuNiños muniNiño1 = new menuNiños("cangreburger",0.50,20.0,10);
+        menuNiños muniNiño2 = new menuNiños("papas gg",2.30,1.20,8.10);
+        menuEconomico menuEconomic = new menuEconomico("ceviche",22.1,10);
         MenuDia menuDay = new MenuDia("Caldito de Pollo", 31.1,12.1,12.4);
-        menuCarta munuCart = new menuCarta("Caldito de Pollo", 31.1);
+        menuCarta munuCart = new menuCarta("Caldito de Pollo", 31.1,4.12,5.6);
 
         listaMenus.add(muniNiño1);
         listaMenus.add(muniNiño2);

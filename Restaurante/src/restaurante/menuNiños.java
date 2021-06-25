@@ -46,6 +46,6 @@ public class menuNiños  extends Menu{
     }
      @Override
     public void setValorMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.valorMenu = porHelado + pastel;
     }
 }

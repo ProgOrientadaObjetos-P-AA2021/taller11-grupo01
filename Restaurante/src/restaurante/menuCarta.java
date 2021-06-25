@@ -65,4 +65,5 @@ public class menuCarta extends Menu {
     public void setValorMenu() {
         this.valorMenu = valorGuarnicion + valorBebida + porcenForService;
     }
+    
 }

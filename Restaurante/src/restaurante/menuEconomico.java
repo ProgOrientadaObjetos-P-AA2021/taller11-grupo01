@@ -17,7 +17,7 @@ public class menuEconomico extends Menu{
         porcentaje = p;
     }
     public void setPorcentajeDescuento(double pro){
-        porcentaje = pro;
+        porcentaje = (valorInicialMenu *pro) /100;
     }
     
     public double getPorcentajeDescuento(){
@@ -37,7 +37,7 @@ public class menuEconomico extends Menu{
 
     @Override
     public void setValorMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.valorMenu = valorInicialMenu + porcentaje;
     }
     
 }
