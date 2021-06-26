@@ -5,6 +5,7 @@
  */
 package restaurante;
 
+import MenuAbstratcta.Menu;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +24,9 @@ public class Cuenta {
         this.nombreCl = nombreCl;
         this.listadoMenu = listadoMenu;
         this.iva = iva;
+        this.listadoMenu = listadoMenu;
+        setSubtotal();
+        setValorTotal();
 
     }
 
@@ -39,10 +43,12 @@ public class Cuenta {
         valTotal = ((subt * iva) / 100) + subt;
     }
 
-    public void setSubtotal(double s) {
+    public void setSubtotal() {
+        double suma = 0;
         for (int i = 0; i < listadoMenu.size(); i++) {
-            
+            suma = suma + listadoMenu.get(i).getValorMenu();
         }
+        this.subt = suma;
     }
 
     public void setIva(int iv) {
@@ -71,19 +77,19 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        String cadena = String.format(">>>>>>>> Cuenta <<<<<<<<\n"
-                + "%s>\tNombre Cliente: %s\n"
-                + ">\tlista del menu: %s\n"
-                + ">\tValor Total:%.2f\n"
-                + ">\tSubtotal:\n"
-                + ">\tIva: \n",
-                super.toString(),
-                getNombreCliente(),
-                getListadoCartas(),
-                getValorTotal(),
+        String cadena = String.format(">>>>>>>>> Cuenta Total a Cancelar <<<<"
+                + "<<<<\n> Lista de Menus Consumidos:\n");
+        for (int i = 0; i < listadoMenu.size(); i++) {
+            cadena = String.format("%s%s\n", cadena,
+                    listadoMenu.get(i).toString());
+        }
+        cadena = String.format("%s>>>>>> Cuenta del Cliente:\n\n\t"
+                + "> Nombre Cliente: %s\n\t> Subtotal: %.2f$\n"
+                + "\t> Iva: %d%s\n"
+                + "\t> Valor Total: %.2f$\n", cadena, getNombreCliente(),
                 getSubtotal(),
-                getIva());
-
+                getIva(), "%",
+                getValorTotal());
         return cadena;
     }
 }

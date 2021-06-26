@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package restaurante;
+package Menus;
+
+import MenuAbstratcta.Menu;
 
 /**
  *
@@ -13,14 +15,14 @@ public class menuCarta extends Menu {
 
     private double valorGuarnicion;
     private double valorBebida;
-    private double porcenForService;
+    private int porcenForService;
 
     public menuCarta(String nombrePlato, double valorInicialMenu,
-            double valorGuarnicion, double valorBebida) {
+            double valorGuarnicion, double valorBebida, int porcentaje) {
         super(nombrePlato, valorInicialMenu);
         this.valorGuarnicion = valorGuarnicion;
         this.valorBebida = valorBebida;
-        setPorcenForService(10);
+        this.porcenForService = porcentaje;
     }
 
     public void setValorGuarnicion(double valorGuarnicion) {
@@ -31,8 +33,8 @@ public class menuCarta extends Menu {
         this.valorBebida = valorBebida;
     }
 
-    public void setPorcenForService(int x) {
-        this.porcenForService = (valorInicialMenu * x) / 100;
+    public void setPorcenForService(int porcenForService) {
+        this.porcenForService = porcenForService;
     }
 
     public double getValorGuarnicion() {
@@ -43,27 +45,28 @@ public class menuCarta extends Menu {
         return valorBebida;
     }
 
-    public double getPorcenForService() {
+    public int getPorcenForService() {
         return porcenForService;
     }
 
     @Override
     public String toString() {
-        String cadena = String.format(">>>>>>>> Menu de la Carta <<<<<<<<\n"
-                + "%s>\tValor de Guarnición %.2f\n"
-                + ">\tValor  de Bebida: %.2f\n"
-                + ">\tValor Adicional por Servicio: %.2f\n"
-                + ">\tValor total del menu: %.2f\n",
+        String cadena = String.format("----------- Menu de la Carta -----------"
+                + "\n%s\t> Valor de Guarnición %.2f$\n"
+                + "\t> Valor de Bebida: %.2f$\n"
+                + "\t> Porcentaje adicional: %d%s\n"
+                + "\t> Valor total del menu: %.2f$\n",
                 super.toString(),
                 getValorGuarnicion(),
-                getValorBebida(), getPorcenForService(), getValorMenu());
+                getValorBebida(), getPorcenForService(), "%", getValorMenu());
 
         return cadena;
     }
 
     @Override
     public void setValorMenu() {
-        this.valorMenu = valorGuarnicion + valorBebida + porcenForService;
+        this.valorMenu = valorInicialMenu + valorGuarnicion + valorBebida
+                + ((valorInicialMenu * porcenForService) / 100);
     }
-    
+
 }

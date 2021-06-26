@@ -1,4 +1,4 @@
-package restaurante;
+package MenuAbstratcta;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -45,10 +45,9 @@ public abstract class Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format(">\tNombre del Plato: %s\n"
-                + ">\tValor Inicial del Menu: %.2f\n",
+        String cadena = String.format("\t> Nombre del Plato: %s\n"
+                + "\t> Valor Inicial del Menu: %.2f$\n",
                 getNombrePlato(), getValorInicialMenu());
-
         return cadena;
     }
 }
